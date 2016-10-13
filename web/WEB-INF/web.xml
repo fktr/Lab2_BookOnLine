@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>EventProcess</servlet-name>
+        <servlet-class>top.kernelpanic.servlet.EventProcess</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EventProcess</servlet-name>
+        <url-pattern>/index</url-pattern>
+        <url-pattern>/detail</url-pattern>
+        <url-pattern>/add</url-pattern>
+        <url-pattern>/update</url-pattern>
+        <url-pattern>/delete</url-pattern>
+        <url-pattern>/search</url-pattern>
+        <url-pattern>/login</url-pattern>
+        <url-pattern>/log</url-pattern>
+        <url-pattern>/collect</url-pattern>
+        <url-pattern>/mybook</url-pattern>
+        <url-pattern>/remove</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>top.kernelpanic.filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/delete</url-pattern>
+        <url-pattern>/log</url-pattern>
+    </filter-mapping>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error.jsp</location>
+    </error-page>
+    <welcome-file-list>
+        <welcome-file>/welcome.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
